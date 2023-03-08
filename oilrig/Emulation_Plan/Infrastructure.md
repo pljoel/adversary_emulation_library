@@ -74,7 +74,7 @@ Note: You may need to chmod the scripts to allow them to run.
 
 4 targets, all domain joined to the `boombox` domain:
 
-1. *SQL Server* : tested and executed on CentOS 7.9
+1. *SQL Server* : tested and executed on Windows Server 2k19 - Build 17763
 1. *Domain Controller* : tested and executed on Windows Server 2k19 - Build 17763
 1. *Exchange Server* : tested and executed on Windows Server 2k19 - Build 17763
 1. *Exchange Admin Workstation* : tested and executed on Windows 10 - Build 17763
@@ -176,7 +176,7 @@ Note: in the scenario, DNS records were manually created to emulate network acti
 1. Install [MSSQL](https://www.microsoft.com/en-us/sql-server/sql-server-2019) and configure data to be stored locally on the C: drive.
 1. Create an "SQL Admins" domain group with `tous` as a member, additionally giving tous access permissions and ownership of the DB.
 1. Sign in as `tous` and create a new database called `sitedata`.
-1. Import the `minfac.csv` data file to populate the database.
+1. Import the [`minfac.csv`](../Resources/setup/minfac.csv) data file to populate the database.
 1. Create a backup of the database to the drive for later exfiltration by the adversary
 	* Note: For the purpose of execution, this directory was `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\`
 1. Open Windows Defender, toggle all nobs to the off position.
