@@ -6,7 +6,9 @@ choco install --confirm sql-server-management-studio  # Used to manage SQL Serve
 # Install SQLCMD - Used on waterfalls for persistant SQL Connection
 New-Item -Path "C:\temp" -ItemType Directory
 wget -O 'C:\temp\mssql-cmdln-utils.msi' 'https://go.microsoft.com/fwlink/?linkid=2142258'
-msiexec.exe mssql-cmdln-utils.msi /quiet
+msiexec.exe /i C:\temp\mssql-cmdln-utils.msi /quiet IACCEPTMSSQLCMDLNUTILSLICENSETERMS=YES
+Remove-Item -LiteralPath C:\temp -Force -Recurse
+
 
 # Non-required Quality of life tools
 choco install --confirm vscode                        # Used as a file editor
