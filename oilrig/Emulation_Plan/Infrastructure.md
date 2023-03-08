@@ -6,7 +6,7 @@ The requirements described herein should be considered a bare minimum to execute
 
 ## Resources
 
-The [Binaries.zip](./Resources/Binaries/binaries.zip) contains all executables in one zip file for easy download. The password is `malware`.
+The [Binaries.zip](../Resources/Binaries/binaries.zip) contains all executables in one zip file for easy download. The password is `malware`.
 
 This scenario also utilizes `Mimikatz`, `Plink` and `PsExec` as payloads:
 
@@ -93,7 +93,7 @@ Note: You may need to chmod the scripts to allow them to run.
 Note: in the scenario, DNS records were manually created to emulate network activity from suspect domains
 
 1. Open Windows Defender, toggle all nobs to the off position.
-1. Open PowerShell being sure to select "Run as Administrator" and run the [`modify-defender.ps1`](../Resources/preflight/modify-defender.ps1) script:
+1. Open PowerShell being sure to select "Run as Administrator" and run the [`modify-defender.ps1`](../Resources/setup/modify-defender.ps1) script:
     ```bat
     .\modify-defender.ps1
     ```
@@ -123,7 +123,7 @@ Note: in the scenario, DNS records were manually created to emulate network acti
 ### Configure Workstation `theblock`\ 10.1.0.5
 
 1. Ensure [Microsoft Office](https://www.microsoft.com/en-us/download/office.aspx) is installed and that you're able to edit a document. This will ensure the macros run correctly against the host.
-1. Open PowerShell being sure to select "Run as Administrator" and run the [`modify-defender.ps1`](../Resources/preflight/modify-defender.ps1) script:
+1. Open PowerShell being sure to select "Run as Administrator" and run the [`modify-defender.ps1`](../Resources/setup/modify-defender.ps1) script:
     ```bat
     .\modify-defender.ps1
     ```
@@ -145,7 +145,7 @@ Note: in the scenario, DNS records were manually created to emulate network acti
 1. Setup [Exchange Server](https://www.microsoft.com/en-us/download/details.aspx?id=103477) to host OWA and EAC.
 1. Create the "EWS Admins" group, adding `tous`, `gosta`
 1. Install [MSSQL](https://www.microsoft.com/en-us/sql-server/sql-server-2019) 
-1. Create a scheduled task to run the [`sql_connection.bat`](../Resources/Infrastructure) upon system startup:
+1. Create a scheduled task to run the [`sql_connection.bat`](../Resources/setup/sql_connection.bat) upon system startup:
     ```pwsh
     schtasks /create /tn "SQL Connection" /tr <Path to the batch file> /sc onstart /U BOOMBOX\tous
     ```
@@ -154,7 +154,7 @@ Note: in the scenario, DNS records were manually created to emulate network acti
     netstat -ano | select-string 1433
     ```
 1. Open Windows Defender, toggle all nobs to the off position.
-1. In the same PowerShell window,  run the [`modify-defender.ps1`](../Resources/preflight/modify-defender.ps1) script:
+1. In the same PowerShell window,  run the [`modify-defender.ps1`](../Resources/setup/modify-defender.ps1) script:
     ```bat
     .\modify-defender.ps1
     ```
@@ -166,7 +166,7 @@ Note: in the scenario, DNS records were manually created to emulate network acti
     ```bat
     .\choco-install.ps1
     ```
-1. In the Administrator Powershell Terminal run the [`install-packages.ps1`](../Resourcess/setup/install-packages.ps1) script:
+1. In the Administrator Powershell Terminal run the [`install-packages.ps1`](../Resources/setup/install-packages.ps1) script:
     ```bat
     .\install-packages.ps1
     ```
@@ -180,7 +180,7 @@ Note: in the scenario, DNS records were manually created to emulate network acti
 1. Create a backup of the database to the drive for later exfiltration by the adversary
 	* Note: For the purpose of execution, this directory was `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\`
 1. Open Windows Defender, toggle all nobs to the off position.
-1. Open PowerShell being sure to select "Run as Administrator" and run the [`modify-defender.ps1`](../Resources/preflight/modify-defender.ps1) script:
+1. Open PowerShell being sure to select "Run as Administrator" and run the [`modify-defender.ps1`](../Resources/setup/modify-defender.ps1) script:
     ```bat
     .\modify-defender.ps1
     ```
