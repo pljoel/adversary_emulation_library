@@ -15,4 +15,4 @@ choco install --confirm vscode                        # Used as a file editor
 choco install --confirm microsoft-edge                # Used as alternative to IE
 
 #Reboot computer after all installs to make sure they are all functional
-Restart-Computer 
+Restart-Computer
